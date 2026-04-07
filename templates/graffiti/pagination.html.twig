@@ -1,0 +1,35 @@
+{# default Sliding pagination control implementation #}
+{% if pageCount > 1 %}
+    <div class="pagination">
+        {% if first is defined and current != first %}
+            <a href="{{ path(route, knp_pagination_query(query, first, options)) }}" class="button ghost">&lt;&lt;</a>
+        {% else %}
+            <button disabled rel="prev" class="ghost">&lt;&lt;</button>
+        {% endif %}
+
+        {% if previous is defined %}
+            <a rel="prev" href="{{ path(route, knp_pagination_query(query, previous, options)) }}" class="button ghost">&lt;</a>
+        {% else %}
+            <button disabled rel="prev" class="ghost">&lt;</button>
+        {% endif %}
+
+        <ul>
+            {% for page in pagesInRange %}
+                <li>
+                    <a href="{{ path(route, knp_pagination_query(query, page, options)) }}" class="button ghost" {% if page == current %} aria-current="page"{% endif %}>{{ page }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if next is defined %}
+            <a rel="next" href="{{ path(route, knp_pagination_query(query, next, options)) }}" class="button ghost">&gt;</a>
+        {% else %}
+            <button disabled rel="prev" class="ghost">&gt;</button>
+        {% endif %}
+
+        {% if last is defined and current != last %}
+            <a href="{{ path(route, knp_pagination_query(query, last, options)) }}" class="button ghost">&gt;&gt;</a>
+        {% else %}
+            <button disabled rel="prev" class="ghost">&gt;&gt;</button>
+        {% endif %}
+    </div>
+{% endif %}

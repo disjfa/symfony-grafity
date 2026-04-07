@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Chart\BlogDateChart;
 use App\Repository\BlogRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,9 +19,18 @@ final class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard', name: 'app_dashboard')]
-    public function dashboard(): Response
+    #[Route('/about', name: 'app_about')]
+    public function about(): Response
     {
-        return $this->render('home/dashboard.html.twig');
+        return $this->render('home/about.html.twig');
+    }
+
+    #[Route('/dashboard', name: 'app_dashboard')]
+    public function dashboard(BlogRepository $blogRepository, BlogDateChart $blogDateChart): Response
+    {
+        return $this->render('home/dashboard.html.twig', [
+            'blogs' => $blogRepository->findPaginated(1, 5),
+            'chart' => $blogDateChart->getChart(),
+        ]);
     }
 }

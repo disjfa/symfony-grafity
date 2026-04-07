@@ -41,6 +41,18 @@ class ThemeSettings
     public string $brown = '#a35e16';
 
     /**
+     * Site settings.
+     */
+    #[SettingsParameter(formType: ColorType::class, formOptions: ['help' => 'Default: #050505'])]
+    public string $fgLight = '#050505';
+    #[SettingsParameter(formType: ColorType::class, formOptions: ['help' => 'Default: #fff'])]
+    public string $fgDark = '#fff';
+    #[SettingsParameter(formType: ColorType::class, formOptions: ['help' => 'Default: #fff'])]
+    public string $bgLight = '#fff';
+    #[SettingsParameter(formType: ColorType::class, formOptions: ['help' => 'Default: #050505'])]
+    public string $bgDark = '#050505';
+
+    /**
      * Radius.
      */
     #[SettingsParameter(formOptions: ['help' => 'Default: 2px'])]
@@ -54,5 +66,5 @@ class ThemeSettings
     #[SettingsParameter(formOptions: ['help' => 'Default: 24px'])]
     public string $borderRadiusXl = '24px';
     #[SettingsParameter(formOptions: ['help' => 'Default: 32px'])]
-    public string $borderRadiusXXl = '32px';
+    public string $borderRadiusXxl = '32px';
 }

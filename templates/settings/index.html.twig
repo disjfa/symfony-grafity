@@ -6,10 +6,49 @@
     <div class="padding">
         {{ form_start(form) }}
         <div class="stack">
+
+            <details class="bordered">
+                <summary>Default colors</summary>
+                {{ form_row(form.fgLight) }}
+                {{ form_row(form.fgDark) }}
+                {{ form_row(form.bgLight) }}
+                {{ form_row(form.bgDark) }}
+            </details>
+
+            <details class="bordered">
+                <summary>Border radius</summary>
+                {{ form_row(form.borderRadiusXs) }}
+                {{ form_row(form.borderRadiusS) }}
+                {{ form_row(form.borderRadiusM) }}
+                {{ form_row(form.borderRadiusL) }}
+                {{ form_row(form.borderRadiusXl) }}
+                {{ form_row(form.borderRadiusXxl) }}
+            </details>
+
+            <details class="bordered">
+                <summary>Colors</summary>
+                {{ form_row(form.yellow) }}
+                {{ form_row(form.amber) }}
+                {{ form_row(form.orange) }}
+                {{ form_row(form.red) }}
+                {{ form_row(form.pink) }}
+                {{ form_row(form.purple) }}
+                {{ form_row(form.indigo) }}
+                {{ form_row(form.blue) }}
+                {{ form_row(form.teal) }}
+                {{ form_row(form.green) }}
+                {{ form_row(form.lime) }}
+                {{ form_row(form.highlighter) }}
+                {{ form_row(form.brown) }}
+            </details>
+
+
             {{ form_rest(form) }}
-            <button class="primary" type="submit" accesskey="s">
-                Save
-            </button>
+            <div>
+                <button class="primary" type="submit" accesskey="s">
+                    Save
+                </button>
+            </div>
         </div>
         {{ form_end(form) }}
     </div>

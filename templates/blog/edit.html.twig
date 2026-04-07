@@ -1,11 +1,11 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Edit Blog{% endblock %}
+{% block title %}Edit {{ blog.name }}{% endblock %}
 
 {% block body %}
     <section class="padding">
         <header class="split center">
-            <h1>Edit Blog</h1>
+            <h1>Edit {{ blog.name }}</h1>
             <div class="cluster">
                 <a class="button ghost" href="{{ path('app_blog_index') }}">Back to list</a>
                 {{ include('blog/_delete_form.html.twig') }}

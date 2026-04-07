@@ -18,11 +18,11 @@ class BlogRepository extends ServiceEntityRepository
         parent::__construct($registry, Blog::class);
     }
 
-    public function findPaginated(int $page): PaginationInterface
+    public function findPaginated(int $page, int $limit = 12): PaginationInterface
     {
         $qb = $this->createQueryBuilder('blog');
         $qb->orderBy('blog.publish_date', 'DESC');
 
-        return $this->paginator->paginate($qb, $page, 12);
+        return $this->paginator->paginate($qb, $page, $limit);
     }
 }

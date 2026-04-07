@@ -36,6 +36,9 @@
             <a href="{{ path('app_blog_index') }}" {{ app.request.attributes.get('_route') == 'app_blog_index' ? ' aria-current="page"' : '' }}>
                 🗞️ Blog
             </a>
+            <a href="{{ path('app_settings') }}" {{ app.request.attributes.get('_route') == 'app_settings' ? ' aria-current="page"' : '' }}>
+                🪢️ Settings
+            </a>
         </nav>
     </aside>
     <div class="app-shell">

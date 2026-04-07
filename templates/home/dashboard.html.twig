@@ -1,6 +1,8 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}
+    Dashboard!
+{% endblock %}
 
 {% block body %}
     <div class="padding">
@@ -19,6 +21,21 @@
             <article class="stat-card"><small>Support Tickets</small> <strong>18</strong>
                 <span class="tag success" style="margin-block-start: auto;">Down 3 this week</span>
             </article>
+            <div class="stat-card">
+                {{ render_chart(chart) }}
+            </div>
+            <div class="stat-card">
+                <h4>Latest blogs</h4>
+                <div class="stack">
+                    {% for blog in blogs %}
+                        <a href="{{ path('app_blog_edit', {id: blog.id}) }}">
+                            {{ blog.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
         </section>
+
+
     </div>
 {% endblock %}

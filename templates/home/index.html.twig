@@ -1,43 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Hello
+    Hello graffiti
 {% endblock %}
 
 {% block body %}
     <div class="layout-readable">
         <div class="stack">
-            <h1>Hello</h1>
-
-            <div class="cluster">
-                <button>Default</button>
-                <button class="primary">Primary</button>
-                <button class="success">Success</button>
-                <button class="warning">Warning</button>
-                <button class="error">Error</button>
-                <button class="dark">Dark</button>
-                <button class="light">Light</button>
-                <button class="contrast">Contrast</button>
-                <button class="ghost">Ghost</button>
-                <button class="minimal">Minimal</button>
-                <button class="reset">Reset</button>
-            </div>
-
-
-            <div class="layout-three-col">
+            <h1>Hello graffiti</h1>
+            <div class="layout-card">
                 {% for blog in blogs %}
                     <article class="feature-card">
                         <h3>{{ blog.name }}</h3>
-
                         {{ blog.intro | markdown_to_html }}
-
-                        <a href="{{ path('app_blog_show', {id: blog.id}) }}">Read more ...</a>
+                        <a href="{{ path('app_blog_show', {id: blog.id}) }}" style="margin-block-start: auto">
+                            Read more ...
+                        </a>
                     </article>
                 {% endfor %}
             </div>
-
             <div class="navigation">
-                {{ knp_pagination_render(blogs) }}
+                {{ knp_pagination_render(blogs, 'graffiti/pagination.html.twig') }}
             </div>
         </div>
     </div>
